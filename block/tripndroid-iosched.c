@@ -54,9 +54,9 @@ static void tripndroid_merged_requests(struct request_queue *q, struct request *
 	 * and move into next position (next will be deleted) in fifo.
 	 */
 	if (!list_empty(&rq->queuelist) && !list_empty(&next->queuelist)) {
-		if (time_before(next->fifo_time, rq->fifo_time)) {
+        if (time_before(next->fifo_time, rq->fifo_time)) {
 			list_move(&rq->queuelist, &next->queuelist);
-			rq->fifo_time = next->fifo_time;
+		    rq->fifo_time = next->fifo_time;
 		}
 	}
 
@@ -83,7 +83,7 @@ static struct request *tripndroid_expired_request(struct tripndroid_data *td, in
 
 	rq = rq_entry_fifo(list->next);
 
-	if (time_after(jiffies, rq->fifo_time))
+	if (time_after_eq(jiffies,  rq->fifo_time))
 		return rq;
 
 	return NULL;
@@ -203,7 +203,7 @@ static int tripndroid_init_queue(struct request_queue *q, struct elevator_type *
 	if (!eq)
 		return -ENOMEM;
 
-	td = kmalloc_node(sizeof(*td), GFP_KERNEL, q->node);
+	td = kzalloc_node(sizeof(*td), GFP_KERNEL | __GFP_ZERO, q->node);
 	if (!td) {
 		kobject_put(&eq->kobj);
 		return -ENOMEM;
