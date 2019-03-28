@@ -2684,7 +2684,7 @@ int smblib_get_prop_die_health(struct smb_charger *chg,
 #define SDP_CURRENT_UA			500000
 #define CDP_CURRENT_UA			1500000
 #ifdef CONFIG_MACH_ASUS_SDM660
-#define DCP_CURRENT_UA			2000000
+#define DCP_CURRENT_UA			5000000
 #else
 #define DCP_CURRENT_UA			1500000
 #endif
@@ -3789,7 +3789,7 @@ void jeita_rule(void)
 #endif
 		charging_enable = EN_BAT_CHG_EN_COMMAND_TRUE;
 		FV_CFG_reg_value = SMBCHG_FLOAT_VOLTAGE_VALUE_4P350;
-		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_2050MA;
+		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_3000MA;
 
 		rc = SW_recharge(smbchg_dev);
 		if (rc < 0)
@@ -3804,7 +3804,7 @@ void jeita_rule(void)
 #endif
 		charging_enable = EN_BAT_CHG_EN_COMMAND_TRUE;
 		FV_CFG_reg_value = SMBCHG_FLOAT_VOLTAGE_VALUE_4P095;
-		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_2050MA;
+		FCC_reg_value = SMBCHG_FAST_CHG_CURRENT_VALUE_3000MA;
 		break;
 
 #ifdef ASUS_CUSTOM_JEITA_SET_MODIFY
@@ -3945,7 +3945,7 @@ void asus_chg_flow_work(struct work_struct *work)
 		break;
 
 	case OCP_CHARGER_BIT:
-		set_icl = ICL_1000mA;
+		set_icl = ICL_3000mA;
 
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
@@ -3968,7 +3968,7 @@ void asus_chg_flow_work(struct work_struct *work)
 			pr_err("%s: Couldn't read fast_CURRENT_LIMIT_CFG_REG\n",
 				__func__);
 
-		set_icl = ICL_1000mA;
+		set_icl = ICL_3000mA;
 
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
@@ -4080,23 +4080,23 @@ void asus_adapter_adc_work(struct work_struct *work)
 	/* determine current-setting value for DCP type AC: */
 	switch (ASUS_ADAPTER_ID) {
 	case ASUS_750K:
-		usb_max_current = ICL_2000mA;
+		usb_max_current = ICL_3000mA;
 		break;
 
 	case ASUS_200K:
-		usb_max_current = ICL_2000mA;
+		usb_max_current = ICL_3000mA;
 		break;
 
 	case PB:
-		usb_max_current = ICL_2000mA;
+		usb_max_current = ICL_3000mA;
 		break;
 
 	case OTHERS:
-		usb_max_current = ICL_2000mA;
+		usb_max_current = ICL_3000mA;
 		break;
 
 	case ADC_NOT_READY:
-		usb_max_current = ICL_1000mA;
+		usb_max_current = ICL_3000mA;
 		break;
 	}
 
