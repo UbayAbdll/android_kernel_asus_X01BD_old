@@ -684,7 +684,7 @@ static ssize_t synaptics_rmi4_full_pm_cycle_show(struct device *dev,
 {
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	return snprintf(buf, PAGE_SIZE, "%u\n",
+	return snprintf(buf, sizeof(buf), "%u\n",
 			rmi4_data->full_pm_cycle);
 }
 
@@ -767,7 +767,7 @@ static ssize_t synaptics_rmi4_f01_productinfo_show(struct device *dev,
 {
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	return snprintf(buf, PAGE_SIZE, "0x%02x 0x%02x\n",
+	return snprintf(buf, sizeof(buf), "0x%02x 0x%02x\n",
 			(rmi4_data->rmi4_mod_info.product_info[0]),
 			(rmi4_data->rmi4_mod_info.product_info[1]));
 }
@@ -777,7 +777,7 @@ static ssize_t synaptics_rmi4_f01_buildid_show(struct device *dev,
 {
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	return snprintf(buf, PAGE_SIZE, "%u\n",
+	return snprintf(buf, sizeof(buf), "%u\n",
 			rmi4_data->firmware_id);
 }
 
@@ -799,7 +799,7 @@ static ssize_t synaptics_rmi4_f01_flashprog_show(struct device *dev,
 		return retval;
 	}
 
-	return snprintf(buf, PAGE_SIZE, "%u\n",
+	return snprintf(buf, sizeof(buf), "%u\n",
 			device_status.flash_prog);
 }
 
@@ -808,7 +808,7 @@ static ssize_t synaptics_rmi4_0dbutton_show(struct device *dev,
 {
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	return snprintf(buf, PAGE_SIZE, "%u\n",
+	return snprintf(buf, sizeof(buf), "%u\n",
 			rmi4_data->button_0d_enabled);
 }
 
