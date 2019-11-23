@@ -363,6 +363,7 @@ static int32_t msm_subflash_i2c_release(
 {
 	int32_t rc = 0;
 
+<<<<<<< HEAD
 	if ((&flash_ctrl->power_info == NULL) ||
 		(&flash_ctrl->flash_i2c_client == NULL)) {
 		pr_err("%s:%d failed: %pK %pK\n",
@@ -370,6 +371,14 @@ static int32_t msm_subflash_i2c_release(
 			&flash_ctrl->flash_i2c_client);
 		return -EINVAL;
 	}
+=======
+	// if (!(&flash_ctrl->power_info) || !(&flash_ctrl->flash_i2c_client)) {
+	// 	pr_err("%s:%d failed: %pK %pK\n",
+	// 		__func__, __LINE__, &flash_ctrl->power_info,
+	// 		&flash_ctrl->flash_i2c_client);
+	// 	return -EINVAL;
+	// }
+>>>>>>> db3ff019841f... fix msm_subflash.c error
 
 	rc = msm_camera_power_down(&flash_ctrl->power_info,
 		flash_ctrl->flash_device_type,
