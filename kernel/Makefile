@@ -128,6 +128,3 @@ $(obj)/config_data.gz: arch/arm64/configs/X01BD_stock-defconfig FORCE
 targets += config_data.h
 $(obj)/config_data.h: $(obj)/config_data.gz FORCE
 	$(call filechk,ikconfiggz)
-
-subdir-ccflags-y += \
-	-Winteger-overflow
