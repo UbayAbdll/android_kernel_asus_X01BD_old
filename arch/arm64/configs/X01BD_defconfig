@@ -8,7 +8,7 @@ CONFIG_LOCALVERSION="-ZyC-Rebuild"
 ## --
 ## --
 ## -- -- -- -- -- -- -- -- -- -- -- --
-CONFIG_LOCALVERSION_AUTO=y
+# CONFIG_LOCALVERSION_AUTO is not set
 # Devfreq
 CONFIG_DEVFREQ_GOV_QCOM_ADRENO_TZ=y
 CONFIG_ADRENO_IDLER=y
