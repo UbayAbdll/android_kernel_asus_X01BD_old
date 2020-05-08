@@ -3925,20 +3925,11 @@ void asus_chg_flow_work(struct work_struct *work)
 		rc = smblib_read(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 					&USBIN_1_cc);
 		if (rc < 0)
-<<<<<<< HEAD
 			pr_err("%s: Couldn't read fast_CURRENT_LIMIT_CFG_REG\n",
 				__func__);
 
-		set_icl = ICL_500mA;
+		set_icl = ICL_4000mA;
 
-=======
-			printk("%s: Couldn't read fast_CURRENT_LIMIT_CFG_REG\n", __func__);
-		printk("asus_chg_flow_work usbmode_USBIN_1_cc=0x%x\n",USBIN_1_cc);
-/* Huaqin add for ZQL1650-71 before BC1.2 500mA before adapter id 1000mA by fangaijun at 2018/4/4 end */
-#endif
-/* Huaqin add for ZQL1650-1287 factory version remove before BC1.2 500mA before adapter id 1000mA by fangaijun at 2018/5/8 end */
-			set_icl = ICL_4000mA;
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
 						set_icl);
@@ -3951,20 +3942,11 @@ void asus_chg_flow_work(struct work_struct *work)
 		break;
 
 	case CDP_CHARGER_BIT:
-<<<<<<< HEAD
-		set_icl = ICL_3000mA;
+		set_icl = ICL_4000mA;
 
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
 						set_icl);
-=======
-		printk("asus_chg_flow_work enter CDP_CHARGER_BIT\n");
-/* Huaqin modify for ZQL1650 modify CDP charging current by fangaijun at 2018/04/18 start*/
-			set_icl = ICL_4000mA;
-/* Huaqin modify for ZQL1650 modify CDP charging current by fangaijun at 2018/04/18 end*/
-		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,     //reg=1370   bit7-bit0=USBIN_CURRENT_LIMIT
-			USBIN_CURRENT_LIMIT_MASK, set_icl);
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
 		if (rc < 0)
 			pr_err("%s: Failed to set USBIN_CURRENT_LIMIT\n",
 				__func__);
@@ -3980,13 +3962,8 @@ void asus_chg_flow_work(struct work_struct *work)
 		break;
 
 	case OCP_CHARGER_BIT:
-<<<<<<< HEAD
-		set_icl = ICL_3000mA;
+		set_icl = ICL_4000mA;
 
-=======
-		printk("asus_chg_flow_work entert OCP_CHARGER_BIT");
-			set_icl = ICL_4000mA;                                                                                                                                 //reg=1370 bit7-bit0
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
 						set_icl);
@@ -4008,12 +3985,8 @@ void asus_chg_flow_work(struct work_struct *work)
 			pr_err("%s: Couldn't read fast_CURRENT_LIMIT_CFG_REG\n",
 				__func__);
 
-		set_icl = ICL_3000mA;
+		set_icl = ICL_4000mA;
 
-<<<<<<< HEAD
-=======
-		set_icl = ICL_4000mA;                                                                                                                                 //reg=1370 bit7-bit0
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
 		rc = smblib_masked_write(smbchg_dev, USBIN_CURRENT_LIMIT_CFG_REG,
 						USBIN_CURRENT_LIMIT_MASK,
 						set_icl);
@@ -4033,29 +4006,12 @@ void asus_chg_flow_work(struct work_struct *work)
 			pr_err("%s: failed to pull-high ADC_SW_EN-gpios59\n",
 				__func__);
 			break;
-<<<<<<< HEAD
 		} else
 			pr_debug("%s: Pull high USBSW_S\n", __func__);
 
 		schedule_delayed_work(&smbchg_dev->asus_adapter_adc_work,
 					msecs_to_jiffies(15000));
 
-=======
-		} else {
-			set_icl = ICL_4000mA;
-			printk("%s: Pull high USBSW_S\n", __func__);
-		}
-#if 0
-		if (HVDCP_FLAG == 0) {
-			printk("%s: NOT factory_build, HVDCP_FLAG = 0, ADC_WAIT_TIME = 15s\n", __func__);
-			schedule_delayed_work(&smbchg_dev->asus_adapter_adc_work, msecs_to_jiffies(ADC_WAIT_TIME_HVDCP0));
-		} else {
-			printk("%s: NOT factory_build, HVDCP_FLAG = 2or3, ADC_WAIT_TIME = 0.1s\n", __func__);
-			schedule_delayed_work(&smbchg_dev->asus_adapter_adc_work, msecs_to_jiffies(ADC_WAIT_TIME_HVDCP23));
-		}
-#endif
-		schedule_delayed_work(&smbchg_dev->asus_adapter_adc_work, msecs_to_jiffies(15000));
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
 		break;
 
 	default:
@@ -4141,35 +4097,19 @@ void asus_adapter_adc_work(struct work_struct *work)
 	/* determine current-setting value for DCP type AC: */
 	switch (ASUS_ADAPTER_ID) {
 	case ASUS_750K:
-<<<<<<< HEAD
-		usb_max_current = ICL_3000mA;
-=======
-			usb_max_current = ICL_4000mA;
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
+		usb_max_current = ICL_4000mA;
 		break;
 
 	case ASUS_200K:
-<<<<<<< HEAD
-		usb_max_current = ICL_3000mA;
-=======
-			usb_max_current = ICL_4000mA;
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
+		usb_max_current = ICL_4000mA;
 		break;
 
 	case PB:
-<<<<<<< HEAD
-		usb_max_current = ICL_3000mA;
-=======
-			usb_max_current = ICL_4000mA;
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
+		usb_max_current = ICL_4000mA;
 		break;
 
 	case OTHERS:
-<<<<<<< HEAD
-		usb_max_current = ICL_3000mA;
-=======
-			usb_max_current = ICL_4000mA;
->>>>>>> 6412dfb7a38b... qcom: smb-lib: update ??
+		usb_max_current = ICL_4000mA;
 		break;
 
 	case ADC_NOT_READY:
