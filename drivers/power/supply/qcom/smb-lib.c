@@ -3635,9 +3635,8 @@ int smbchg_jeita_judge_state(int old_State, int batt_tempr)
 	//45 <= batt_tempr < 55
 	// } else if (batt_tempr < 550) {
 	} else {
-
-	}
 		result_State = JEITA_STATE_RANGE_450_to_550;
+	}
 	//55 <= batt_tempr
 	// } else{
 	// 	result_State = JEITA_STATE_LARGER_THAN_550;
@@ -3654,8 +3653,8 @@ int smbchg_jeita_judge_state(int old_State, int batt_tempr)
 	}
 	//60 <= batt_tempr
 	// } else {
-		result_State = JEITA_STATE_LARGER_THAN_600;
-	}
+	// 	result_State = JEITA_STATE_LARGER_THAN_600;
+	// }
 	#endif
 	/* Huaqin modify for ZQL1820-HQ000002  Adjust JEITA according to customer require by gaochao at 2018/10/11 end */
 
