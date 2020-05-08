@@ -350,8 +350,9 @@ static int cpufreq_governor_init(struct cpufreq_policy *policy,
 
 	/* policy latency is in ns. Convert it to us first */
 	latency = policy->cpuinfo.transition_latency / 1000;
-	if (latency == 0)
+	if (latency == 0) {
 		latency = 1;
+	}
 
 	/* Bring kernel and HW constraints together */
 		set_sampling_rate(dbs_data,
