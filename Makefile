@@ -659,8 +659,18 @@ KBUILD_CFLAGS   += -O2
 endif
 endif
 
-<<<<<<< HEAD
-=======
+## Add polly for clang
+ifeq ($(cc-name),clang)
+KBUILD_CFLAGS	+= $(call cc-option, -mllvm -polly) \
+				$(call cc-option, -mllvm -polly-run-dce) \
+				$(call cc-option, -mllvm -polly-run-inliner) \
+				$(call cc-option, -mllvm -polly-opt-fusion=max) \
+				$(call cc-option, -mllvm -polly-ast-use-context) \
+				$(call cc-option, -mllvm -polly-detect-keep-going) \
+				$(call cc-option, -mllvm -polly-vectorizer=stripmine) \
+				$(call cc-option, -mllvm -polly-invariant-load-hoisting)
+endif
+
 ifdef CONFIG_CC_WERROR
 KBUILD_CFLAGS	+= -Werror
 endif
@@ -675,7 +685,6 @@ KBUILD_CFLAGS += $(call cc-ifversion, -gt, 0900, \
 KBUILD_CFLAGS += $(call cc-ifversion, -lt, 0409, \
 			$(call cc-disable-warning,maybe-uninitialized,))
 
->>>>>>> d36bce32dbc3... Makefile: disable some fancy new GCC warnings
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
 KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
