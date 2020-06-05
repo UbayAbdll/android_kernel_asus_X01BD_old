@@ -124,3 +124,13 @@ android/configs/android-*.cfg
 #Ignoring Android.bp link file
 #
 Android.bp
+
+# dont ignore circleci
+!.circleci
+!.circleci/*
+
+# ignore builder folder
+AnyKernel/*
+Getclang/*
+GetGcc/*
+GetGccB/*
