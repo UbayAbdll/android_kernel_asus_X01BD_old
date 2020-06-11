@@ -1,11 +1,10 @@
 updatream() {
     branch=$1
-    git checkout $branch && git reset --hard HEAD~3
+    git checkout $branch && git reset --hard HEAD~2
     git pull . rebase-20200313 --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313' into $1"
     git pull . rebase-20200313-vdso32 --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313-vdso32' into $1"
     git pull . rebase-20200313-upstream --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313-upstream' into $1"
     git pull . rebase-20200313-upstream-caf-latest --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313-upstream-caf-latest' into $1"
-    git pull . rebase-20200313-upstream-latest-common --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313-upstream-latest-common' into $1"
     git pull . rebase-20200313-pie-qcacld --no-ff --no-commit && git commit -s -m "merge Branch 'rebase-20200313-pie-qcacld' into $1"
 }
 updatream eg/20200313/f
