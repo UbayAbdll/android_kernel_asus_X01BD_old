@@ -14180,17 +14180,18 @@ static void wlan_hdd_update_band_cap(hdd_context_t *hdd_ctx)
 		hdd_ctx->wiphy->bands[HDD_NL80211_BAND_5GHZ]->vht_cap.cap = 0;
 	}
 	if (band_2g) {
-		for (i = 0; i < hdd_ctx->num_rf_chains; i++)
+		for (i = 0; i < hdd_ctx->num_rf_chains; i++) {
 			band_2g->ht_cap.mcs.rx_mask[i] = 0xff;
 			/*
 			 * According to mcs_nss HT MCS parameters highest data
 			 * rate for Nss = 1 is 150 Mbps
 			 */
-		 band_2g->ht_cap.mcs.rx_highest =
+		 	band_2g->ht_cap.mcs.rx_highest =
 				cpu_to_le16(150 * hdd_ctx->num_rf_chains);
+		}
 	}
 	if (band_5g) {
-		for (i = 0; i < hdd_ctx->num_rf_chains; i++)
+		for (i = 0; i < hdd_ctx->num_rf_chains; i++) {
 			band_5g->ht_cap.mcs.rx_mask[i] = 0xff;
 			/*
 			 * According to mcs_nss HT MCS parameters highest data
@@ -14198,6 +14199,7 @@ static void wlan_hdd_update_band_cap(hdd_context_t *hdd_ctx)
 			 */
 			band_5g->ht_cap.mcs.rx_highest =
 				cpu_to_le16(150 * hdd_ctx->num_rf_chains);
+		}
 	}
 }
 
