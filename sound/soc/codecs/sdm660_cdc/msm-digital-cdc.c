@@ -1275,7 +1275,7 @@ static void sdm660_tx_mute_update_callback(struct work_struct *work)
 }
 
 #ifdef CONFIG_SOUND_CONTROL
-struct snd_soc_codec *sound_control_codec_ptr;
+static struct snd_soc_codec *sound_control_codec_ptr;
 
 static ssize_t headphone_gain_show(struct kobject *kobj,
 		struct kobj_attribute *attr, char *buf)
@@ -1294,10 +1294,10 @@ static ssize_t headphone_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < -84 || input_l > 40)
+	if (input_l < -84 || input_l > 20)
 		input_l = 0;
 
-	if (input_r < -84 || input_r > 40)
+	if (input_r < -84 || input_r > 20)
 		input_r = 0;
 
 	snd_soc_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX1_VOL_CTL_B2_CTL, input_l);
@@ -1310,7 +1310,7 @@ static struct kobj_attribute headphone_gain_attribute =
 	__ATTR(headphone_gain, 0664,
 		headphone_gain_show,
 		headphone_gain_store);
-		
+
 static ssize_t mic_gain_show(struct kobject *kobj,
 		struct kobj_attribute *attr, char *buf)
 {
@@ -1352,11 +1352,33 @@ static ssize_t mic_gain_show(struct kobject *kobj,
 		earpiece_gain_show,
 		earpiece_gain_store);
 
+ static ssize_t speaker_gain_show(struct kobject *kobj,
+               struct kobj_attribute *attr, char *buf)
+{
+      return snprintf(buf, PAGE_SIZE, "%d\n",
+              snd_soc_read(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL));
+}
+
+ static ssize_t speaker_gain_store(struct kobject *kobj,
+		struct kobj_attribute *attr, const char *buf, size_t count)
+{
+	int input;
+	sscanf(buf, "%d", &input);
+	if (input < -10 || input > 20)
+		input = 0;
+	snd_soc_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL, input);
+	return count;
+}
+ static struct kobj_attribute speaker_gain_attribute =
+	__ATTR(speaker_gain, 0664,
+		speaker_gain_show,
+		speaker_gain_store);
 
 static struct attribute *sound_control_attrs[] = {
 		&headphone_gain_attribute.attr,
 		&mic_gain_attribute.attr,
 		&earpiece_gain_attribute.attr,
+		&speaker_gain_attribute.attr,
 		NULL,
 };
 
