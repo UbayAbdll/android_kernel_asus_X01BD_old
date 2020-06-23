@@ -126,3 +126,8 @@ AnyKernel/*
 Getclang/*
 GetGcc/*
 GetGccB/*
+
+#
+#Ignoring Android.bp link file
+#
+Android.bp
