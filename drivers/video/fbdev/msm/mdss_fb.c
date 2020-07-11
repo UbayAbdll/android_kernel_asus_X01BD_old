@@ -46,6 +46,9 @@
 #include <linux/file.h>
 #include <linux/kthread.h>
 #include <linux/dma-buf.h>
+#ifdef CONFIG_KLAPSE
+#include <linux/klapse.h>
+#endif
 #ifdef CONFIG_MACH_ASUS_X01BD
 #include <linux/wakelock.h>
 #endif
@@ -58,15 +61,6 @@
 #include "mdss_debug.h"
 #include "mdss_smmu.h"
 #include "mdss_mdp.h"
-
-<<<<<<< HEAD
-=======
-#ifdef CONFIG_KLAPSE
-#include <linux/klapse.h>
-#endif
-
-#include <linux/wakelock.h>
->>>>>>> 25f9894955d3... KLAPSE: Adapt for X01BD
 #ifdef CONFIG_FB_MSM_TRIPLE_BUFFER
 #define MDSS_FB_NUM 3
 #else
