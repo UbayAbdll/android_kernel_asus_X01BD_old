@@ -170,7 +170,7 @@ void mdss_check_dsi_ctrl_status(struct work_struct *work, uint32_t interval)
 
 	if (pstatus_data->mfd->panel_power_state == MDSS_PANEL_POWER_ON) {
 		if (ret > 0)
-#ifdef CONFIG_MACH_ASUS_X01BDd
+#ifdef CONFIG_MACH_ASUS_X01BD
 			     {
 			pstatus_data->is_first_check = 0;
 #endif
