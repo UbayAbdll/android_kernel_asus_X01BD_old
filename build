@@ -74,7 +74,7 @@ make -j$(($GetCore*2))  O=../../X01BD/out \
                             CLANG_TRIPLE=aarch64-linux-gnu-
 [ -e ../../X01BD/out/arch/arm64/boot/Image.gz-dtb ] && MakeZip 'Q'
 
-git revert 5635a6912517f367bdc442ca03b7a04d33086ec0 --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (fde8d99aaa52fb00d378ded46847d9dd28a7a167)'
+git revert a0aeff5d2c620ef53e17dbb99d28ebfc522e4e8b --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (fde8d99aaa52fb00d378ded46847d9dd28a7a167)'
 
 rm -rf ../../X01BD/out && \
 make -j$(($GetCore*2))  O=../../X01BD/out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
