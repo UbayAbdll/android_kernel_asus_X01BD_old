@@ -19,7 +19,7 @@ make -j$(($GetCore))  O=out CC="ccache /home/zycomerz/Android/clang/DragonTC-dai
                             CLANG_TRIPLE=aarch64-linux-gnu- 
 [ -e $MainPath/out/arch/arm64/boot/Image.gz-dtb ] && cp -af $MainPath/out/arch/arm64/boot/Image.gz-dtb /home/zycomerz/Android/AnyKernel3 && rm -f $MainPath/out/arch/arm64/boot/Image.gz-dtb && cd /home/zycomerz/Android/AnyKernel3  && zip -r ../"[Q][$TANGGAL][Gclang9]$KERNEL_NAME-$ZIP_KERNEL_VERSION.zip" ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip   2>&1 && cd $MainPath
 
-git revert ecc5b3add2f2dc3c4a25f5da9550bff39847dd1b --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (ecc5b3add2f2dc3c4a25f5da9550bff39847dd1b)'
+git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (e3f173b6585865b3e1658802c84c52de21ec0502)'
 make -j$(($GetCore)) O=out clean mrproper  && \
 rm -rf out && \
 make -j$(($GetCore))  O=out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
