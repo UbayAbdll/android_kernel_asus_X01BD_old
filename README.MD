@@ -1,10 +1,10 @@
-# INFO branch X01BD kernel
+# INFO branch kernel for X01BD
 * current active branch : 
     * qk/20200711/ul 
     * qk/20200711/l 
     * qk/20200711/n
 
-# INFO about kernel
+# INFO kernel
 * P = Kernel for Android 9 (Pie) ROMs and Official ArrowOS (both Android 9 & 10 ArrowOS)
 * Q = Kernel for Android 10 (Q) ROMs and Stock ROM (both Android 9 & 10 Stock ROM)
 * uL = 1.95 Ghz CPU + 585 MHz GPU Kernel + Undervolted (for battery backup)
