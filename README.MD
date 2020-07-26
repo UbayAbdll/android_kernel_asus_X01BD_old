@@ -15,7 +15,7 @@
 * (60 Hz & 65 Hz is supported by almost all display panels. So, you can use as per your choice. 71 Hz is supported by very less display panels and you might get freeze issues. If you get freeze issues on 71 Hz kernel then switch to 60/65 Hz kernel. More refresh rate means more smoothness and more battery usage)
 * DTC, GCC, Stormbreaker, Avalon, Proton etc. are different tools to compile kernels, you can find more about them by Google Search. Which one is better? - Try them and find out yourself.
 * If you are getting issues like freeze, random shutdown, random reboot with UV kernels like 'uL' & 'L' version then don't use these kernels. Instead use 'N' version.
-* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/README.MD">README.MD</a> to see kernels info
+* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/X01BD.MD">X01BD.MD</a> to see changelogs
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download.MD">download.MD</a> to see all download links
 
 credit to @Rahul9964 for this notes xD
