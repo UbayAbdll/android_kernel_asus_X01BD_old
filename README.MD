@@ -16,6 +16,7 @@
 * DTC, GCC, Stormbreaker, Avalon, Proton etc. are different tools to compile kernels, you can find more about them by Google Search. Which one is better? - Try them and find out yourself.
 * If you are getting issues like freeze, random shutdown, random reboot with UV kernels like 'uL' & 'L' version then don't use these kernels. Instead use 'N' version.
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/X01BD.MD">X01BD.MD</a> to see changelogs
-* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download.MD">download.MD</a> to see all download links
+* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download.MD">download.MD</a> to see all download links for stable build
+* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download-rc.MD">download.MD</a> to see all download links for release candidate build
 
-credit to @Rahul9964 for this notes xD
+credit to <a href="https://t.me/Rahul9964">@Rahul9964</a> for this notes xD
