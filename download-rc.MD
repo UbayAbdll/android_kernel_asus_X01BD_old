@@ -1,5 +1,5 @@
 # lazy to make pling link,so check here UwU 
-* For chagelogs check at <a href="https://t.me/QknTercyduxGroup">group telegram</a> :V
+* For chagelogs check at <a href="https://t.me/QKnDCGroupOfficial">group telegram</a> :V
 * feel free to hate me :v
 * Fyi
     * Q : can i share direct link to other? 
