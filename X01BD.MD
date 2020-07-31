@@ -1,5 +1,6 @@
 # -- 01-08-2020 --
 * upstream to 4.4.132
+* upstream caf tags to LA.UM.8.2.r1-07100-sdm660.0
 * re enable LD DEAD CODE DATA ELIMINATION
 
 # -- 25-07-2020 --
