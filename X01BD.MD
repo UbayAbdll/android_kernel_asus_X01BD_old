@@ -1,3 +1,7 @@
+# -- 01-08-2020 --
+* upstream to 4.4.132
+* re enable LD DEAD CODE DATA ELIMINATION
+
 # -- 25-07-2020 --
 * upstream to 4.4.131
 * rebased kernel from @Rk585 kernel (many things like kernel drivers, NFC check support, brightness slider fix added from his kernel)
