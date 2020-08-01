@@ -51,26 +51,51 @@ GetCore=$(nproc --all)
 TANGGAL=$(date +"%m%d")
 echo "dih . . .";
 MAKE="./makeparallel"
-make -j$(($GetCore)) O=../../X01BD/out clean mrproper  && \
 rm -rf ../../X01BD/out && \
 make -j$(($GetCore))  O=../../X01BD/out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
-make -j$(($GetCore))  O=../../X01BD/out CC="ccache ../../clang/DragonTC-9.0/bin/clang" \
-                            PATH="../../clang/DragonTC-9.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gccarm-linux-androideabi-4.9/bin:${PATH}" \
-                            LD_LIBRARY_PATH="../../clang/DragonTC-9.0/lib64:${LD_LIBRARY_PATH}" \
+make -j$(($GetCore))  O=../../X01BD/out \
+                            PATH="../../clang/DragonTC-10.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gcc/arm-linux-androideabi-4.9/bin:${PATH}" \
+                            LD_LIBRARY_PATH="../../clang/DragonTC-10.0/lib64:${LD_LIBRARY_PATH}" \
+                            CC="ccache clang" \
                             CROSS_COMPILE=aarch64-linux-android- \
                             CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                            AR=llvm-ar \
+                            AS=llvm-as \
+                            NM=llvm-nm \
+                            OBJCOPY=llvm-objcopy \
+                            OBJDUMP=llvm-objdump \
+                            OBJSIZE=llvm-size \
+                            READELF=llvm-readelf \
+                            STRIP=llvm-strip \
+                            HOSTCC=clang \
+                            HOSTCXX=clang++ \
+                            HOSTAR=llvm-ar \
                             CLANG_TRIPLE=aarch64-linux-gnu-
+                            # HOSTLD=ld.lld \
+                            # LD=ld.lld \
 [ -e ../../X01BD/out/arch/arm64/boot/Image.gz-dtb ] && MakeZip 'Q'
 
 git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit && git commit -s -m 'Revert "qcacld-3.0: discard wlan_boot sysfs code on !CONFIG_MODULES" (e3f173b6585865b3e1658802c84c52de21ec0502)'
-make -j$(($GetCore)) O=../../X01BD/out clean mrproper  && \
+
 rm -rf ../../X01BD/out && \
 make -j$(($GetCore))  O=../../X01BD/out ARCH="arm64" SUBARCH="arm64" "$Defconfig" && \
-make -j$(($GetCore))  O=../../X01BD/out CC="ccache ../../clang/DragonTC-9.0/bin/clang" \
-                            PATH="../../clang/DragonTC-9.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gccarm-linux-androideabi-4.9/bin:${PATH}" \
-                            LD_LIBRARY_PATH="../../clang/DragonTC-9.0/lib64:${LD_LIBRARY_PATH}" \
+make -j$(($GetCore))  O=../../X01BD/out 
+                            PATH="../../clang/DragonTC-10.0/bin:../../gcc/aarch64-linux-android-4.9/bin:../../gcc/arm-linux-androideabi-4.9/bin:${PATH}" \
+                            LD_LIBRARY_PATH="../../clang/DragonTC-10.0/lib64:${LD_LIBRARY_PATH}" \
+                            CC="ccache clang" \
                             CROSS_COMPILE=aarch64-linux-android- \
                             CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                            AR=llvm-ar \
+                            AS=llvm-as \
+                            NM=llvm-nm \
+                            OBJCOPY=llvm-objcopy \
+                            OBJDUMP=llvm-objdump \
+                            OBJSIZE=llvm-size \
+                            READELF=llvm-readelf \
+                            STRIP=llvm-strip \
+                            HOSTCC=clang \
+                            HOSTCXX=clang++ \
+                            HOSTAR=llvm-ar \
                             CLANG_TRIPLE=aarch64-linux-gnu-
 [ -e ../../X01BD/out/arch/arm64/boot/Image.gz-dtb ] && MakeZip 'P'
 git reset --hard HEAD~1

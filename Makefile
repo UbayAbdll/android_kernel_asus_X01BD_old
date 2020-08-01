@@ -659,6 +659,14 @@ KBUILD_CFLAGS   += -O2
 endif
 endif
 
+ifeq ($(cc-name),clang)
+KBUILD_CFLAGS   += -mcpu=cortex-a53 -mtune=cortex-a53
+endif
+
+ifeq ($(cc-name),gcc)
+KBUILD_CFLAGS   += -mcpu=cortex-a73.cortex-a53 -mtune=cortex-a73.cortex-a53
+endif
+
 ## Add polly for clang
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= $(call cc-option, -mllvm -polly) \
