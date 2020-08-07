@@ -1,8 +1,7 @@
 # INFO branch kernel for X01BD
-* current active branch : 
-    * qk/20200711/ul 
-    * qk/20200711/l 
-    * qk/20200711/n
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/qk/20200711/ul"> QuantumKiller-uL Kernel Source</a>
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/qk/20200711/l"> QuantumKiller-L Kernel Source</a>
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/qk/20200711/n"> QuantumKiller-N Kernel Source</a>
 
 # INFO kernel
 * P = Kernel for Android 9 (Pie) ROMs and Official ArrowOS (both Android 9 & 10 ArrowOS)
@@ -17,6 +16,5 @@
 * If you are getting issues like freeze, random shutdown, random reboot with UV kernels like 'uL' & 'L' version then don't use these kernels. Instead use 'N' version.
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/X01BD.MD">X01BD.MD</a> to see changelogs
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download.MD">download.MD</a> to see all download links for stable build
-* open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download-rc.MD">download.MD</a> to see all download links for release candidate build
 
 credit to <a href="https://t.me/Rahul9964">@Rahul9964</a> for this notes xD
