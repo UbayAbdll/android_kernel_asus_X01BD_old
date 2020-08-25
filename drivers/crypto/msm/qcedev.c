@@ -1751,7 +1751,7 @@ long qcedev_ioctl(struct file *file, unsigned cmd, unsigned long arg)
 			}
 		}
 		break;
-	}
+
 	case QCEDEV_IOCTL_SHA_FINAL_REQ:
 
 		if (handle->sha_ctxt.init_done == false) {
