@@ -1,0 +1,19 @@
+git branch -D \
+qk/20200825/ul-rc \
+qk/20200825/l-rc \
+qk/20200825/n-rc \
+tercydux/20200825/a-rc \
+tercydux/20200825/b-rc
+upstream()
+{
+    branch=$1
+    git checkout $branch && git checkout -b ${branch}-rc && \
+    git pull . rebase-20200825-upstream-rc --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200825-upstream-rc' into $branch"
+    git checkout rebase-20200825
+}
+upstream qk/20200825/ul
+upstream qk/20200825/l
+upstream qk/20200825/n
+upstream tercydux/20200825/a
+upstream tercydux/20200825/b
+git push --all origin -f

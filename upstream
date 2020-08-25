@@ -1,0 +1,14 @@
+upstream()
+{
+    branch=$1
+    git checkout $branch && \
+    git pull . rebase-20200825 --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200825' into $branch"
+    git pull . rebase-20200825-upstream --no-ff --no-commit && git commit -s -m "Merge Branch 'rebase-20200825-upstream' into $branch"
+    git checkout rebase-20200825
+}
+upstream qk/20200825/ul
+upstream qk/20200825/l
+upstream qk/20200825/n
+upstream tercydux/20200825/a
+upstream tercydux/20200825/b
+git push --all origin -f
