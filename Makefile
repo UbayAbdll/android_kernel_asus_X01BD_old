@@ -679,6 +679,10 @@ KBUILD_CFLAGS	+= $(call cc-option, -mllvm -polly) \
 				$(call cc-option, -mllvm -polly-detect-keep-going) \
 				$(call cc-option, -mllvm -polly-vectorizer=stripmine) \
 				$(call cc-option, -mllvm -polly-invariant-load-hoisting)
+
+# disable warning: tokens terminating statement expression are separated by whitespace on latest clang 12
+KBUILD_CFLAGS	+= $(call cc-disable-warning,compound-token-split-by-space)
+
 endif
 
 ifdef CONFIG_CC_WERROR
