@@ -1,3 +1,10 @@
+# -- 04-09-2020 --
+* upstream to 4.4.235
+* upstream CAF tags kernel to LA.UM.8.2.r1-07200-sdm660.0
+* revert some commit after upstream CAF tags to fix not booted
+* fix wrong revert commit for fix wifi for Android 9 xD
+* disable some warning to fix build error using latest proton clang 12
+
 # -- 26-08-2020 --
 * re-based again, u can <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/rebase-20200825-initial">check this tree</a> if u want
 * maybe fix battery temp issue (higher than real)
