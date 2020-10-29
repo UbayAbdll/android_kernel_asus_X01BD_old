@@ -1,30 +1,7 @@
-# -- 04-09-2020 --
+# -- 10-29-2020 --
 * upstream to 4.4.235
-* upstream CAF tags kernel to LA.UM.8.2.r1-07200-sdm660.0
-* revert some commit after upstream CAF tags to fix not booted
-* fix wrong revert commit for fix wifi for Android 9 xD
-* disable some warning to fix build error using latest proton clang 12
-
-# -- 26-08-2020 --
-* re-based again, u can <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/rebase-20200825-initial">check this tree</a> if u want
-* maybe fix battery temp issue (higher than real)
-* wifi drivers kernel using from tags "LA.UM.7.2.r1-09100-sdm660.0" (from pie) to fix slow wifi speed
-* added back all feature from previous kernel
-* add new varian, Tercydux-Santuy and Tercydux-Hareudang
-* build using proton and dtc
-
-Notes:
-* for new variant kernels <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/README.MD">check here</a> for more detail
-
-# -- 01-08-2020 --
-* upstream to 4.4.232
-* upstream caf tags to LA.UM.8.2.r1-07100-sdm660.0
-* re enable LD DEAD CODE DATA ELIMINATION
-
-# -- 25-07-2020 --
-* upstream to 4.4.231
-* rebased kernel from @Rk585 kernel (many things like kernel drivers, NFC check support, brightness slider fix added from his kernel)
-* Fixed brightness slider not working significantly from 0 to 50%
-* Added back all features from previous kernels
-* Added 'Speaker Gain' in sound tweaks (from @SonalSingh18 kernels)
-* Added back my previous feature to kernels
+* upstream CAF tags kernel to LA.UM.9.2.r1-01000-SDMxx0.0
+* using caf tags LA.UM.7.2.r1-09400-sdm660.0 for wifi driver
+* full 100% based latest rk kernels, plus add my previous changes
+* not supported stock rom maybe
+* rename Tercydux to DeathFlower
