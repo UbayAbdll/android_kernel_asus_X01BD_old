@@ -1,5 +1,7 @@
 # INFO branch kernel for X01BD
-* still not pushed to here, lazy AF xD
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/20200911/qk-ul"> QuantumKiller-uL Kernel Source </a>
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/20200911/qk-l"> QuantumKiller-L Kernel Source </a>
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/tree/20200911/qk-n"> QuantumKiller-N Kernel Source </a>
 
 # INFO kernel
 * P = Kernel for Android 9 (Pie) ROMs
@@ -16,3 +18,4 @@
 * If you are getting issues like freeze, random shutdown, random reboot with UV kernels like 'uL' & 'L' version then don't use these kernels. Instead use 'N' version.
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/X01BD.MD">X01BD.MD</a> to see changelogs
 * open <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/blob/changelogs/download.MD">download.MD</a> to see all download links for stable build
+* <a href="https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old/commit/ad37d3e8088a6fbbcce5d9b622688bf1fbe615d2">revert this commits</a> to fix wifi not working for Android 9 custom roms
