@@ -1,0 +1,24 @@
+version: 2.1
+jobs:
+  compile:
+   docker:
+      - image: fadlyas/kernel_dockerfile:latest
+   steps:
+      - run:
+          command: |
+            [ -d "builder_kernel" ] && rm -rf builder_kernel 
+            branch="20200911/main"
+            TypeBuild="Stable"
+            TypeBuildTag="test"
+            git clone https://github.com/ZyCromerZ/android_kernel_asus_X01BD_old -b $branch --depth=1 builder_kernel
+            cd builder_kernel
+            chmod +x build.sh
+            . build.sh
+            DoInitial
+            CompileKernel
+          no_output_timeout : 5h
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
